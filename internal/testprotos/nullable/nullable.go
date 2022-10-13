@@ -5,10 +5,10 @@
 package nullable
 
 import (
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/types/descriptorpb"
+	"github.com/thoohv5/protobuf-go/encoding/prototext"
+	"github.com/thoohv5/protobuf-go/encoding/protowire"
+	"github.com/thoohv5/protobuf-go/runtime/protoimpl"
+	"github.com/thoohv5/protobuf-go/types/descriptorpb"
 )
 
 type Proto2 struct {

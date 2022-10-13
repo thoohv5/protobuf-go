@@ -8,18 +8,18 @@ import (
 	"fmt"
 	"testing"
 
-	"google.golang.org/protobuf/internal/flags"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/testing/prototest"
+	"github.com/thoohv5/protobuf-go/internal/flags"
+	"github.com/thoohv5/protobuf-go/proto"
+	"github.com/thoohv5/protobuf-go/runtime/protoimpl"
+	"github.com/thoohv5/protobuf-go/testing/prototest"
 
-	irregularpb "google.golang.org/protobuf/internal/testprotos/irregular"
-	legacypb "google.golang.org/protobuf/internal/testprotos/legacy"
-	legacy1pb "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20160225_2fc053c5"
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	_ "google.golang.org/protobuf/internal/testprotos/test/weak1"
-	_ "google.golang.org/protobuf/internal/testprotos/test/weak2"
-	test3pb "google.golang.org/protobuf/internal/testprotos/test3"
+	irregularpb "github.com/thoohv5/protobuf-go/internal/testprotos/irregular"
+	legacypb "github.com/thoohv5/protobuf-go/internal/testprotos/legacy"
+	legacy1pb "github.com/thoohv5/protobuf-go/internal/testprotos/legacy/proto2_20160225_2fc053c5"
+	testpb "github.com/thoohv5/protobuf-go/internal/testprotos/test"
+	_ "github.com/thoohv5/protobuf-go/internal/testprotos/test/weak1"
+	_ "github.com/thoohv5/protobuf-go/internal/testprotos/test/weak2"
+	test3pb "github.com/thoohv5/protobuf-go/internal/testprotos/test3"
 )
 
 func Test(t *testing.T) {

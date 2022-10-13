@@ -9,8 +9,8 @@ import (
 	"math"
 	"reflect"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/encoding/protowire"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
 )
 
 // Equal reports whether two messages are equal.

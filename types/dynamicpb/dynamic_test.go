@@ -7,14 +7,14 @@ package dynamicpb_test
 import (
 	"testing"
 
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/testing/prototest"
-	"google.golang.org/protobuf/types/dynamicpb"
+	"github.com/thoohv5/protobuf-go/proto"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/reflect/protoregistry"
+	"github.com/thoohv5/protobuf-go/testing/prototest"
+	"github.com/thoohv5/protobuf-go/types/dynamicpb"
 
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	test3pb "google.golang.org/protobuf/internal/testprotos/test3"
+	testpb "github.com/thoohv5/protobuf-go/internal/testprotos/test"
+	test3pb "github.com/thoohv5/protobuf-go/internal/testprotos/test3"
 )
 
 func TestConformance(t *testing.T) {

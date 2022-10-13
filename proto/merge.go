@@ -7,8 +7,8 @@ package proto
 import (
 	"fmt"
 
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoiface"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/runtime/protoiface"
 )
 
 // Merge merges src into dst, which must be a message with the same descriptor.

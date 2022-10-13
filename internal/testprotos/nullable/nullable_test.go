@@ -9,10 +9,10 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/testing/protocmp"
+	"github.com/thoohv5/protobuf-go/proto"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/runtime/protoimpl"
+	"github.com/thoohv5/protobuf-go/testing/protocmp"
 )
 
 func Test(t *testing.T) {
@@ -23,7 +23,7 @@ func Test(t *testing.T) {
 		t.Run(string(mt.Descriptor().FullName()), func(t *testing.T) {
 			testEmptyMessage(t, mt.Zero(), false)
 			testEmptyMessage(t, mt.New(), true)
-			//testMethods(t, mt)
+			// testMethods(t, mt)
 		})
 	}
 }

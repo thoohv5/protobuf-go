@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
 )
 
 type mapConverter struct {

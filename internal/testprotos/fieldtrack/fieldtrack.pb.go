@@ -8,11 +8,11 @@
 package fieldtrack
 
 import (
-	_ "google.golang.org/protobuf/internal/testprotos/annotation"
-	test "google.golang.org/protobuf/internal/testprotos/test"
-	proto "google.golang.org/protobuf/proto"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	_ "github.com/thoohv5/protobuf-go/internal/testprotos/annotation"
+	test "github.com/thoohv5/protobuf-go/internal/testprotos/test"
+	proto "github.com/thoohv5/protobuf-go/proto"
+	protoreflect "github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/thoohv5/protobuf-go/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 )
