@@ -20,6 +20,8 @@ import (
 	"google.golang.org/protobuf/internal/encoding/tag"
 	"google.golang.org/protobuf/internal/genid"
 	"google.golang.org/protobuf/internal/version"
+	"google.golang.org/protobuf/plugin/tag/options"
+	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/runtime/protoimpl"
 
@@ -399,16 +401,30 @@ func genMessageField(g *protogen.GeneratedFile, f *fileInfo, m *messageInfo, fie
 	if pointer {
 		goType = "*" + goType
 	}
+
+	jsonTag := ""
+	if jt := proto.GetExtension(field.Desc.Options(), options.E_Jsontag).(string); len(jt) > 0 {
+		jsonTag = jt
+	}
+
 	tags := structTags{
-		{"protobuf", fieldProtobufTagValue(field)},
-		{"json", fieldJSONTagValue(field)},
+		{"protobuf", fieldProtobufTagValue(field, jsonTag)},
+		{"json", fieldJSONTagValue(field, jsonTag)},
 	}
 	if field.Desc.IsMap() {
 		key := field.Message.Fields[0]
 		val := field.Message.Fields[1]
 		tags = append(tags, structTags{
-			{"protobuf_key", fieldProtobufTagValue(key)},
-			{"protobuf_val", fieldProtobufTagValue(val)},
+			{"protobuf_key", fieldProtobufTagValue(key, "")},
+			{"protobuf_val", fieldProtobufTagValue(val, "")},
+		}...)
+	}
+	if field.Desc.IsMap() {
+		key := field.Message.Fields[0]
+		val := field.Message.Fields[1]
+		tags = append(tags, structTags{
+			{"protobuf_key", fieldProtobufTagValue(key, "")},
+			{"protobuf_val", fieldProtobufTagValue(val, "")},
 		}...)
 	}
 	if m.isTracked {
@@ -672,12 +688,12 @@ func fieldGoType(g *protogen.GeneratedFile, f *fileInfo, field *protogen.Field) 
 	return goType, pointer
 }
 
-func fieldProtobufTagValue(field *protogen.Field) string {
+func fieldProtobufTagValue(field *protogen.Field, jsonTag string) string {
 	var enumName string
 	if field.Desc.Kind() == protoreflect.EnumKind {
 		enumName = protoimpl.X.LegacyEnumName(field.Enum.Desc)
 	}
-	return tag.Marshal(field.Desc, enumName)
+	return tag.Marshal(field.Desc, enumName, jsonTag)
 }
 
 func fieldDefaultValue(g *protogen.GeneratedFile, f *fileInfo, m *messageInfo, field *protogen.Field) string {
@@ -713,8 +729,11 @@ func fieldDefaultValue(g *protogen.GeneratedFile, f *fileInfo, m *messageInfo, f
 	}
 }
 
-func fieldJSONTagValue(field *protogen.Field) string {
-	return string(field.Desc.Name()) + ",omitempty"
+func fieldJSONTagValue(field *protogen.Field, jsonTag string) string {
+	if len(jsonTag) == 0 {
+		jsonTag = string(field.Desc.Name()) + ",omitempty"
+	}
+	return jsonTag
 }
 
 func genExtensions(g *protogen.GeneratedFile, f *fileInfo) {
@@ -733,7 +752,7 @@ func genExtensions(g *protogen.GeneratedFile, f *fileInfo) {
 		g.P("ExtensionType: (", goType, ")(nil),")
 		g.P("Field: ", x.Desc.Number(), ",")
 		g.P("Name: ", strconv.Quote(string(x.Desc.FullName())), ",")
-		g.P("Tag: ", strconv.Quote(fieldProtobufTagValue(x.Extension)), ",")
+		g.P("Tag: ", strconv.Quote(fieldProtobufTagValue(x.Extension, "")), ",")
 		g.P("Filename: ", strconv.Quote(f.Desc.Path()), ",")
 		g.P("},")
 	}
@@ -801,7 +820,7 @@ func genMessageOneofWrapperTypes(g *protogen.GeneratedFile, f *fileInfo, m *mess
 			g.P("type ", field.GoIdent, " struct {")
 			goType, _ := fieldGoType(g, f, field)
 			tags := structTags{
-				{"protobuf", fieldProtobufTagValue(field)},
+				{"protobuf", fieldProtobufTagValue(field, "")},
 			}
 			if m.isTracked {
 				tags = append(tags, gotrackTags...)

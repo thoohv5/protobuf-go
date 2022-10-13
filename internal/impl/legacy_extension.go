@@ -66,7 +66,7 @@ func (xi *ExtensionInfo) initToLegacy() {
 	xi.ExtensionType = reflect.Zero(extType).Interface()
 	xi.Field = int32(xd.Number())
 	xi.Name = string(name)
-	xi.Tag = ptag.Marshal(xd, enumName)
+	xi.Tag = ptag.Marshal(xd, enumName, "")
 	xi.Filename = filename
 }
 
