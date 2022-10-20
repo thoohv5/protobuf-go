@@ -10,7 +10,7 @@ package impl
 import (
 	"reflect"
 
-	"google.golang.org/protobuf/encoding/protowire"
+	"github.com/thoohv5/protobuf-go/encoding/protowire"
 )
 
 func sizeEnum(p pointer, f *coderFieldInfo, _ marshalOptions) (size int) {

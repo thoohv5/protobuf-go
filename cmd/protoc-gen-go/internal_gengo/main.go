@@ -16,17 +16,17 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"google.golang.org/protobuf/compiler/protogen"
-	"google.golang.org/protobuf/internal/encoding/tag"
-	"google.golang.org/protobuf/internal/genid"
-	"google.golang.org/protobuf/internal/version"
-	"google.golang.org/protobuf/plugin/tag/options"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoimpl"
+	"github.com/thoohv5/protobuf-go/compiler/protogen"
+	"github.com/thoohv5/protobuf-go/internal/encoding/tag"
+	"github.com/thoohv5/protobuf-go/internal/genid"
+	"github.com/thoohv5/protobuf-go/internal/version"
+	"github.com/thoohv5/protobuf-go/plugin/tag/options"
+	"github.com/thoohv5/protobuf-go/proto"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/runtime/protoimpl"
 
-	"google.golang.org/protobuf/types/descriptorpb"
-	"google.golang.org/protobuf/types/pluginpb"
+	"github.com/thoohv5/protobuf-go/types/descriptorpb"
+	"github.com/thoohv5/protobuf-go/types/pluginpb"
 )
 
 // SupportedFeatures reports the set of supported protobuf language features.

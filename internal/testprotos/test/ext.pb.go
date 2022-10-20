@@ -8,8 +8,8 @@
 package test
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	protoreflect "github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/thoohv5/protobuf-go/runtime/protoimpl"
 	reflect "reflect"
 )
 

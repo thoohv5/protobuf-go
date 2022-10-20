@@ -9,9 +9,9 @@
 package options
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
+	protoreflect "github.com/thoohv5/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/thoohv5/protobuf-go/runtime/protoimpl"
+	descriptorpb "github.com/thoohv5/protobuf-go/types/descriptorpb"
 	reflect "reflect"
 )
 

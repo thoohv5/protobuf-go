@@ -10,7 +10,7 @@ package protoreflect
 import (
 	"unsafe"
 
-	"google.golang.org/protobuf/internal/pragma"
+	"github.com/thoohv5/protobuf-go/internal/pragma"
 )
 
 type (

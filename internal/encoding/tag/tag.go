@@ -11,10 +11,10 @@ import (
 	"strconv"
 	"strings"
 
-	"google.golang.org/protobuf/internal/encoding/defval"
-	"google.golang.org/protobuf/internal/filedesc"
-	"google.golang.org/protobuf/internal/strs"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/thoohv5/protobuf-go/internal/encoding/defval"
+	"github.com/thoohv5/protobuf-go/internal/filedesc"
+	"github.com/thoohv5/protobuf-go/internal/strs"
+	"github.com/thoohv5/protobuf-go/reflect/protoreflect"
 )
 
 var byteType = reflect.TypeOf(byte(0))
